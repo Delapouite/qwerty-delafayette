@@ -1,0 +1,89 @@
+// Variante of qwerty-lafayette
+// Differences are indicated by a X mark (mainly AltGr bindings)
+
+// To apply this keymap, use:
+//   xkbcomp -I$HOME/.xkb ~/.xkb/keymap/delafayette $DISPLAY
+// Main config files can be found in arch at /usr/share/X11/xkb/
+// See also /usr/include/X11/keysymdef.h
+
+xkb_keymap {
+  xkb_keycodes { include "evdev" };
+  xkb_types { include "complete" };
+  xkb_compatibility { include "complete" };
+
+  partial alphanumeric_keys modifier_keys
+  xkb_symbols "delafayette" {
+
+    include "qwerty-l(lafayette_group2)"
+    include "compose(menu)" // Compose on the 'Menu' key
+    include "compose(prsc)" // Compose on the Print Screen key on Thinkpad X240
+
+    // Digits
+    //                                  X
+    key <AE07> { symbols[group2] = [ 7, sevensuperior ] };
+    //                                  X
+    key <AE08> { symbols[group2] = [ 8, eightsuperior ] };
+    //                            X       X             X
+    key <AE09> {[ 9 , parenleft , U2605 , U2606 ],[ 9 , ninesuperior ]};
+
+    // Letters, first row
+    //                                          X
+    key <AD07> { symbols[group2] = [ 4        , foursuperior ]};
+    //                                          X
+    key <AD08> { symbols[group2] = [ 5        , fivesuperior ]};
+    //                                          X
+    key <AD09> { symbols[group2] = [ 6        , sixsuperior  ]};
+    //                                          X
+    key <AD10> { symbols[group2] = [ asterisk , multiply     ]};
+
+    // Letters, second row
+    //                                   X
+    key <AC07> { symbols[group2] = [ 1 , onesuperior   ]};
+    //                                   X
+    key <AC08> { symbols[group2] = [ 2 , twosuperior   ]};
+    //                                   X
+    key <AC09> { symbols[group2] = [ 3 , threesuperior ]};
+    //                                       X
+    key <AC10> { symbols[group2] = [ minus , notsign ]};
+
+    // Letters, third row
+    //                               X
+    key <AB01> { symbols[group2] = [ apostrophe  , VoidSymbol ]};
+    //                               X
+    key <AB02> { symbols[group2] = [ quotedbl    , VoidSymbol ]};
+    //                               X
+    key <AB03> { symbols[group2] = [ asciicircum , VoidSymbol ]};
+    //                               X
+    key <AB04> { symbols[group2] = [ dollar      , VoidSymbol ]};
+    //                               X
+    key <AB05> { symbols[group2] = [ ampersand   , VoidSymbol ]};
+    //                                             X
+    key <AB07> { symbols[group2] = [ 0           , zerosuperior ]};
+    //                                             X
+    key <AB10> { symbols[group2] = [ plus        , U061F      ]};
+
+    // Pinky keys
+    //                               X
+    key <AD11> { symbols[group2] = [ dead_caron , VoidSymbol ]};
+    //                               X
+    key <AD12> { symbols[group2] = [ dead_greek , VoidSymbol ]};
+    //                                                  X            X
+    key <BKSL> { symbols[group1] = [ backslash  , bar , dead_breve , dead_macron ]};
+    //                               X            X
+    key <LSGT> { symbols[group2] = [ underscore , VoidSymbol ]};
+
+    // TypeMatrix 2030 in 106 mode (Fn + F3 to activate)
+
+    // Antislash key - Romaji keycode 97
+    key <AB11> {[ backslash, bar, VoidSymbol, VoidSymbol ],[ brokenbar, VoidSymbol ]};
+    // These keys are remapped to Super_L via xmodmap (for now)
+    // Shuffle key - Muhenkan keycode 102
+    key <MUHE> { [ Muhenkan ] };
+    // Desktop key - Henkan keycode 100
+    key <HENK> { [ Henkan ] };
+    // Play key, next to left ctrl
+    key <I172> { [ Control_L ] };
+  };
+};
+
+// vim: ft=xkb:ts=2

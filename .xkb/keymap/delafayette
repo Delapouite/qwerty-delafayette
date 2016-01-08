@@ -1,5 +1,5 @@
 // Variante of qwerty-lafayette
-// Differences are indicated by a X mark (mainly AltGr bindings)
+// Differences are the symbols != NoSymbol (mainly AltGr bindings)
 
 // To apply this keymap, use:
 //   xkbcomp -I$HOME/.xkb ~/.xkb/keymap/delafayette $DISPLAY
@@ -18,58 +18,39 @@ xkb_keymap {
     include "compose(menu)" // Compose on the 'Menu' key
     include "compose(prsc)" // Compose on the Print Screen key on Thinkpad X240
 
+    // NoSymbol → preserve previously defined symbol in lafayette
+    // VoidSymbol → don't produce anything
+
     // Digits
-    //                                  X
-    key <AE07> { symbols[group2] = [ 7, sevensuperior ] };
-    //                                  X
-    key <AE08> { symbols[group2] = [ 8, eightsuperior ] };
-    //                            X       X             X
-    key <AE09> {[ 9 , parenleft , U2605 , U2606 ],[ 9 , ninesuperior ]};
+    key <AE07> { symbols[group2] = [ NoSymbol, sevensuperior ] };
+    key <AE08> { symbols[group2] = [ NoSymbol, eightsuperior ] };
+    key <AE09> {[ NoSymbol , NoSymbol , U2605 , U2606 ],[ NoSymbol , ninesuperior ]};
 
     // Letters, first row
-    //                                          X
-    key <AD07> { symbols[group2] = [ 4        , foursuperior ]};
-    //                                          X
-    key <AD08> { symbols[group2] = [ 5        , fivesuperior ]};
-    //                                          X
-    key <AD09> { symbols[group2] = [ 6        , sixsuperior  ]};
-    //                                          X
-    key <AD10> { symbols[group2] = [ asterisk , multiply     ]};
+    key <AD07> { symbols[group2] = [ NoSymbol , foursuperior ]};
+    key <AD08> { symbols[group2] = [ NoSymbol , fivesuperior ]};
+    key <AD09> { symbols[group2] = [ NoSymbol , sixsuperior  ]};
+    key <AD10> { symbols[group2] = [ NoSymbol , multiply     ]};
 
     // Letters, second row
-    //                                   X
-    key <AC07> { symbols[group2] = [ 1 , onesuperior   ]};
-    //                                   X
-    key <AC08> { symbols[group2] = [ 2 , twosuperior   ]};
-    //                                   X
-    key <AC09> { symbols[group2] = [ 3 , threesuperior ]};
-    //                                       X
-    key <AC10> { symbols[group2] = [ minus , notsign ]};
+    key <AC07> { symbols[group2] = [ NoSymbol , onesuperior   ]};
+    key <AC08> { symbols[group2] = [ NoSymbol , twosuperior   ]};
+    key <AC09> { symbols[group2] = [ NoSymbol , threesuperior ]};
+    key <AC10> { symbols[group2] = [ NoSymbol , notsign       ]};
 
     // Letters, third row
-    //                               X
-    key <AB01> { symbols[group2] = [ apostrophe  , VoidSymbol ]};
-    //                               X
-    key <AB02> { symbols[group2] = [ quotedbl    , VoidSymbol ]};
-    //                               X
-    key <AB03> { symbols[group2] = [ asciicircum , VoidSymbol ]};
-    //                               X
-    key <AB04> { symbols[group2] = [ dollar      , VoidSymbol ]};
-    //                               X
-    key <AB05> { symbols[group2] = [ ampersand   , VoidSymbol ]};
-    //                                             X
-    key <AB07> { symbols[group2] = [ 0           , zerosuperior ]};
-    //                                             X
-    key <AB10> { symbols[group2] = [ plus        , U061F      ]};
+    key <AB01> { symbols[group2] = [ apostrophe  , NoSymbol     ]};
+    key <AB02> { symbols[group2] = [ quotedbl    , NoSymbol     ]};
+    key <AB03> { symbols[group2] = [ asciicircum , NoSymbol     ]};
+    key <AB04> { symbols[group2] = [ dollar      , NoSymbol     ]};
+    key <AB05> { symbols[group2] = [ ampersand   , NoSymbol     ]};
+    key <AB07> { symbols[group2] = [ NoSymbol    , zerosuperior ]};
+    key <AB10> { symbols[group2] = [ NoSymbol    , U061F        ]};
 
     // Pinky keys
-    //                               X
-    key <AD11> { symbols[group2] = [ dead_caron , VoidSymbol ]};
-    //                               X
-    key <AD12> { symbols[group2] = [ dead_greek , VoidSymbol ]};
-    //                                                  X            X
-    key <BKSL> { symbols[group1] = [ backslash  , bar , dead_breve , dead_macron ]};
-    //                               X            X
+    key <AD11> { symbols[group2] = [ dead_caron , NoSymbol ]};
+    key <AD12> { symbols[group2] = [ dead_greek , NoSymbol ]};
+    key <BKSL> { symbols[group1] = [ NoSymbol   , NoSymbol , dead_breve , dead_macron ]};
     key <LSGT> { symbols[group2] = [ underscore , VoidSymbol ]};
 
     // TypeMatrix 2030 in 106 mode (Fn + F3 to activate)

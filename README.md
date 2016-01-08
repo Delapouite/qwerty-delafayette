@@ -7,7 +7,7 @@ Variant of the [qwerty-lafayette](https://github.com/fabi1cazenave/qwerty-lafaye
 This layout fills many `VoidSymbol` yet to be defined in the original implementation.
 They're mainly located on the AltGr layer.
 
-It also adds better support for the TypeMatrix 2030 keyboard in 106 keys.
+It also adds better support for the TypeMatrix 2030 keyboard in 106 keys mode.
 
 Finally, the Compose Key is enabled by default.
 

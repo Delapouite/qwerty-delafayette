@@ -59,9 +59,11 @@ xkb_keymap {
     key <AB11> {[ backslash, bar, VoidSymbol, VoidSymbol ],[ brokenbar, VoidSymbol ]};
     // These keys are remapped to Super_L via xmodmap (for now)
     // Shuffle key - Muhenkan keycode 102
-    key <MUHE> { [ Muhenkan ] };
+    key <MUHE> { type[group1] = "ONE_LEVEL", [ Super_L ] };
+    modifier_map Mod4 { <MUHE> };
     // Desktop key - Henkan keycode 100
-    key <HENK> { [ Henkan ] };
+    key <HENK> { type[group1] = "ONE_LEVEL", [ Super_L ] };
+    modifier_map Mod4 { <HENK> };
     // Play key, next to left ctrl
     key <I172> { [ Control_L ] };
   };

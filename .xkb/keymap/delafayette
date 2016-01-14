@@ -22,36 +22,36 @@ xkb_keymap {
     // VoidSymbol → don't produce anything
 
     // Digits
-    key <AE07> { symbols[2] = [ NoSymbol, sevensuperior ] };
-    key <AE08> { symbols[2] = [ NoSymbol, eightsuperior ] };
+    key <AE07> { [], [ NoSymbol, sevensuperior ] };
+    key <AE08> { [], [ NoSymbol, eightsuperior ] };
     key <AE09> {[ NoSymbol , NoSymbol , U2605 , U2606 ],[ NoSymbol , ninesuperior ]};
 
     // Letters, first row
-    key <AD07> { symbols[2] = [ NoSymbol , foursuperior ]};
-    key <AD08> { symbols[2] = [ NoSymbol , fivesuperior ]};
-    key <AD09> { symbols[2] = [ NoSymbol , sixsuperior  ]};
-    key <AD10> { symbols[2] = [ NoSymbol , multiply     ]};
+    key <AD07> { [], [ NoSymbol , foursuperior ]};
+    key <AD08> { [], [ NoSymbol , fivesuperior ]};
+    key <AD09> { [], [ NoSymbol , sixsuperior  ]};
+    key <AD10> { [], [ NoSymbol , multiply     ]};
 
     // Letters, second row
-    key <AC07> { symbols[2] = [ NoSymbol , onesuperior   ]};
-    key <AC08> { symbols[2] = [ NoSymbol , twosuperior   ]};
-    key <AC09> { symbols[2] = [ NoSymbol , threesuperior ]};
-    key <AC10> { symbols[2] = [ NoSymbol , notsign       ]};
+    key <AC07> { [], [ NoSymbol , onesuperior   ]};
+    key <AC08> { [], [ NoSymbol , twosuperior   ]};
+    key <AC09> { [], [ NoSymbol , threesuperior ]};
+    key <AC10> { [], [ NoSymbol , notsign       ]};
 
     // Letters, third row
-    key <AB01> { symbols[2] = [ apostrophe  , NoSymbol     ]};
-    key <AB02> { symbols[2] = [ quotedbl    , NoSymbol     ]};
-    key <AB03> { symbols[2] = [ asciicircum , NoSymbol     ]};
-    key <AB04> { symbols[2] = [ dollar      , NoSymbol     ]};
-    key <AB05> { symbols[2] = [ ampersand   , NoSymbol     ]};
-    key <AB07> { symbols[2] = [ NoSymbol    , zerosuperior ]};
-    key <AB10> { symbols[2] = [ NoSymbol    , U061F        ]};
+    key <AB01> { [], [ apostrophe  , NoSymbol     ]};
+    key <AB02> { [], [ quotedbl    , NoSymbol     ]};
+    key <AB03> { [], [ asciicircum , NoSymbol     ]};
+    key <AB04> { [], [ dollar      , NoSymbol     ]};
+    key <AB05> { [], [ ampersand   , NoSymbol     ]};
+    key <AB07> { [], [ NoSymbol    , zerosuperior ]};
+    key <AB10> { [], [ NoSymbol    , U061F        ]};
 
     // Pinky keys
-    key <AD11> { symbols[2] = [ dead_caron , NoSymbol ]};
-    key <AD12> { symbols[2] = [ dead_greek , NoSymbol ]};
+    key <AD11> { [], [ dead_caron , NoSymbol ]};
+    key <AD12> { [], [ dead_greek , NoSymbol ]};
     key <BKSL> { symbols[1] = [ NoSymbol   , NoSymbol , dead_breve , dead_macron ]};
-    key <LSGT> { symbols[2] = [ underscore , VoidSymbol ]};
+    key <LSGT> { [], [ underscore , VoidSymbol ]};
 
     // TypeMatrix 2030 in 106 mode (Fn + F3 to activate)
 

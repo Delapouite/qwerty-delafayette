@@ -1,4 +1,4 @@
-// Variante of qwerty-lafayette
+// Variante of qwerty-lafayette42
 // Differences are the symbols != NoSymbol (mainly AltGr bindings)
 
 // To apply this keymap, use:
@@ -17,41 +17,60 @@ xkb_keymap {
     include "qwerty-l(lafayette_group2)"
     include "compose(menu)" // Compose on the 'Menu' key
     include "compose(prsc)" // Compose on the Print Screen key on Thinkpad X240
+    include "ctrl(nocaps)" // CAPS is another Control_L
 
     // NoSymbol → preserve previously defined symbol in lafayette
     // VoidSymbol → don't produce anything
 
     // Digits
-    key <AE07> { [], [ NoSymbol, sevensuperior ] };
-    key <AE08> { [], [ NoSymbol, eightsuperior ] };
-    key <AE09> {[ NoSymbol , NoSymbol , U2605 , U2606 ],[ NoSymbol , ninesuperior ]};
+    key <AE06> {[ NoSymbol, NoSymbol, ydiaeresis, Ydiaeresis ], []}; // 6
+    key <AE07> {[ NoSymbol, NoSymbol, udiaeresis, Udiaeresis ], [ NoSymbol, sevensuperior ]}; // 7
+    key <AE08> {[ NoSymbol, NoSymbol, idiaeresis, Idiaeresis ], [ NoSymbol, eightsuperior ]}; // 8
+    key <AE09> {[ NoSymbol, NoSymbol, odiaeresis, Odiaeresis ], [ NoSymbol, ninesuperior  ]}; // 9
 
     // Letters, first row
-    key <AD07> { [], [ NoSymbol , foursuperior ]};
-    key <AD08> { [], [ NoSymbol , fivesuperior ]};
-    key <AD09> { [], [ NoSymbol , sixsuperior  ]};
-    key <AD10> { [], [ NoSymbol , multiply     ]};
+    key <AD01> {[ NoSymbol, NoSymbol, adiaeresis, Adiaeresis ], []}; // q
+    key <AD04> {[ NoSymbol, NoSymbol, ediaeresis, Ediaeresis ], []}; // r
+
+    key <AD07> {[], [ NoSymbol, foursuperior ]}; // u
+    key <AD08> {[], [ NoSymbol, fivesuperior ]}; // i
+    key <AD09> {[], [ NoSymbol, sixsuperior  ]}; // o
+    key <AD10> {[], [ NoSymbol, multiply     ]}; // p
 
     // Letters, second row
-    key <AC07> { [], [ NoSymbol , onesuperior   ]};
-    key <AC08> { [], [ NoSymbol , twosuperior   ]};
-    key <AC09> { [], [ NoSymbol , threesuperior ]};
-    key <AC10> { [], [ NoSymbol , notsign       ]};
+    key <AC03> {[ NoSymbol, NoSymbol, ecircumflex, Ecircumflex ], []}; // d
+    key <AC05> {[ NoSymbol, NoSymbol, NoSymbol   , registered ], []}; // g
+
+    key <AC06> {[ NoSymbol, NoSymbol, ycircumflex, Ycircumflex ], []}; // h
+    key <AC07> {[ NoSymbol, NoSymbol, ucircumflex, Ucircumflex ], [ NoSymbol, onesuperior   ]}; // j
+    key <AC08> {[ NoSymbol, NoSymbol, icircumflex, Icircumflex ], [ NoSymbol, twosuperior   ]}; // k
+    key <AC09> {[ NoSymbol, NoSymbol, ocircumflex, Ocircumflex ], [ NoSymbol, threesuperior ]}; // l
+    key <AC10> {[], [ NoSymbol , notsign ]}; // lafayette
 
     // Letters, third row
-    key <AB01> { [], [ apostrophe  , NoSymbol     ]};
-    key <AB02> { [], [ quotedbl    , NoSymbol     ]};
-    key <AB03> { [], [ asciicircum , NoSymbol     ]};
-    key <AB04> { [], [ dollar      , NoSymbol     ]};
-    key <AB05> { [], [ ampersand   , NoSymbol     ]};
-    key <AB07> { [], [ NoSymbol    , zerosuperior ]};
-    key <AB10> { [], [ NoSymbol    , U061F        ]};
+    key <AB01> {[ NoSymbol, NoSymbol, acircumflex, Acircumflex ], [ apostrophe, NoSymbol     ]}; // z
+    key <AB02> {[ NoSymbol, NoSymbol, ae, AE                   ], [ quotedbl  , NoSymbol     ]}; // x
+    key <AB03> {[], [ asciicircum, NoSymbol     ]}; // c
+    key <AB04> {[], [ dollar     , NoSymbol     ]}; // v
+    key <AB05> {[], [ ampersand  , NoSymbol     ]}; // b
+
+    key <AB07> {[], [ NoSymbol   , zerosuperior ]}; // m
+    key <AB10> {[], [ NoSymbol   , U061F        ]}; // / ؟
 
     // Pinky keys
-    key <AD11> { [], [ dead_caron , NoSymbol ]};
-    key <AD12> { [], [ dead_greek , NoSymbol ]};
-    key <BKSL> { symbols[1] = [ NoSymbol   , NoSymbol , dead_breve , dead_macron ]};
-    key <LSGT> { [], [ underscore , VoidSymbol ]};
+    key <AD11> {[], [ dead_caron, NoSymbol ]};
+    key <AD12> {[], [ dead_greek, NoSymbol ]};
+    key <BKSL> {symbols[1] = [ NoSymbol, NoSymbol, dead_breve, dead_macron ]};
+    key <LSGT> {[], [ underscore, VoidSymbol ]};
+
+    // Master Lock key
+    key <RCTL> {[ Caps_Lock, Caps_Lock, ISO_Level3_Latch, VoidSymbol ], [ ISO_Next_Group, ISO_Last_Group ] };
+
+    // Arrows
+    key <LEFT> {symbols[1] = [ NoSymbol, Home     , leftarrow,  U21D0], [ Home      ]};
+    key <DOWN> {symbols[1] = [ NoSymbol, Page_Down, downarrow,  U21D3], [ Page_Down ]};
+    key <UP>   {symbols[1] = [ NoSymbol, Page_Up  , uparrow,    U21D1], [ Page_Up   ]};
+    key <RGHT> {symbols[1] = [ NoSymbol, End      , rightarrow, U21D2], [ End       ]};
 
     // TypeMatrix 2030 in 106 mode (Fn + F3 to activate)
 
@@ -59,14 +78,14 @@ xkb_keymap {
     key <AB11> {[ backslash, bar, VoidSymbol, VoidSymbol ],[ brokenbar, VoidSymbol ]};
     // These keys are remapped to Super_L via xmodmap (for now)
     // Shuffle key - Muhenkan keycode 102
-    key <MUHE> { type[group1] = "ONE_LEVEL", [ Super_L ] };
+    key <MUHE> {type[group1] = "ONE_LEVEL", [ Super_L ]};
     modifier_map Mod4 { <MUHE> };
     // Desktop key - Henkan keycode 100
-    key <HENK> { type[group1] = "ONE_LEVEL", [ Super_L ] };
+    key <HENK> {type[group1] = "ONE_LEVEL", [ Super_L ]};
     modifier_map Mod4 { <HENK> };
     // Play key, next to left ctrl
-    key <I172> { [ Control_L ] };
+    key <I172> {[ Control_L ]};
   };
 };
 
-// vim: ft=xkb:ts=2
+// vim: ft=xkb:ts=2:expandtab
